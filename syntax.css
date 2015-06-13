@@ -1,0 +1,81 @@
+/**
+ * Arquivo de definição sintática para o analisador de expressões AdvPL.
+ * @author Marcelo Camargo <marcelocamargo@linuxmail.org>
+ */
+html, body {
+  padding: 0;
+  margin: 0;
+  background: gainsboro;
+}
+
+#codegen {
+  font-family: monospace;
+  line-height: 20px;
+  padding: 20px;
+}
+
+.keyword {
+  color: #0077C0;
+  font-weight: bold;
+}
+
+.symbol {
+  color: #34495E;
+}
+
+.number {
+  color: #AA0C48;
+}
+
+.block {
+  border: 1px solid #333;
+  color: #6E248D;
+  background: white;
+  padding: 2px;
+}
+
+.nil {
+  color: #6E3C1B;
+}
+
+.string {
+  border: 1px solid #333;
+  color: #B71C0C;
+  background: white;
+  padding: 2px;
+}
+
+.true {
+  font-weight: bold;
+  color: #009C41;
+}
+
+.false {
+  font-weight: bold;
+  color: #A70C00;
+}
+
+.name {
+  text-decoration: underline;
+  color: #E67E22;
+}
+
+.property {
+  color: #004790;
+}
+
+.folder img {
+  width: 16px;
+  height: 16px;
+  line-height: 20px;
+  margin-bottom: -3px;
+  cursor: pointer;
+}
+
+.string .extender {
+  cursor: pointer;
+  border: 1px solid silver;
+  padding: 0 3px;
+  background: #009C41;
+  color: white;
+}
