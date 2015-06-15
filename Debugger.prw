@@ -128,10 +128,24 @@ Static Function ParseObject( oData )
                + @Token { SYMBOL  "<"                   } ;
                + @Token { NAME    GetClassName( oData ) } ;
                + @Token { SYMBOL  ">"                   } ;
-               + @Token { SYMBOL  "("                   } ;
-               + ParseProperty( aChildren )               ;
-               + @Token { DEDENT  nContext              } ;
-               + @Token { NEWLINE TOKEN                 }
+               + @Token { SYMBOL  "("                   }
+
+    If Len( aChildren ) > 0
+      cTemplate += @Token { FOLDER     TOKEN } ;
+                 + @Token { BEGIN_CLOS TOKEN } ;
+                 + @Token { NEWLINE    TOKEN }
+    Else
+      cTemplate += @Token { SYMBOL  ")"    } ;
+                 + @Token { NEWLINE TOKEN  }
+      Return cTemplate
+    EndIf
+
+    cTemplate += ParseProperty( aChildren )                ;
+               + @Token { DEDENT   nContext              } ;
+               + @Token { SYMBOL   ")"                   } ;
+               + @Token { END_CLOS TOKEN                 } ;
+               + @Token { NEWLINE  TOKEN                 }
+
   @Previous
   Return cTemplate
 
