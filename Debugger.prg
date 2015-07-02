@@ -169,21 +169,14 @@ Static Function ParseArray( aData )
   Local nContext
   @Next
     nContext  := Context
-    cTemplate += @Token { KEYWORD "array"                       } ;
-               + @Token { SYMBOL  "<"                           } ;
-               + @Token { NUMBER AllTrim( Str( Len( aData ) ) ) } ;
-               + @Token { SYMBOL  ">"                           } ;
-               + @Token { SYMBOL  "("                           } ;
-
-    If Len( aData ) > 0
-      cTemplate += @Token { FOLDER     TOKEN } ;
-                 + @Token { BEGIN_CLOS TOKEN } ;
-                 + @Token { NEWLINE    TOKEN }
-    Else
-      cTemplate += @Token { SYMBOL ")"    } ;
-                 + @Token { NEWLINE TOKEN }
-      Return cTemplate
-    EndIf
+    cTemplate += @Token { KEYWORD    "array"                        } ;
+               + @Token { SYMBOL     "<"                            } ;
+               + @Token { NUMBER     AllTrim( Str( Len( aData ) ) ) } ;
+               + @Token { SYMBOL     ">"                            } ;
+               + @Token { SYMBOL     "("                            } ;
+               + @Token { FOLDER     TOKEN                          } ;
+               + @Token { BEGIN_CLOS TOKEN                          } ;
+               + @Token { NEWLINE    TOKEN                          }
 
     For nI := 1 To Len( aData )
       cTemplate += @Token { INDENT Context              } ;
@@ -197,7 +190,6 @@ Static Function ParseArray( aData )
     cTemplate += @Token { DEDENT   nContext } ;
                + @Token { SYMBOL   ")"      } ;
                + @Token { END_CLOS TOKEN    } ;
-               + @Token { NEWLINE  TOKEN    } ;
-
+               + @Token { NEWLINE  TOKEN    }
   @Previous
   Return cTemplate
