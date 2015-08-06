@@ -47,12 +47,12 @@ Function Debug( xVar )
   Local cHTML   := Debugger( xVar, aParser )
   RegisterHTML( cHTML )
   DEFINE DIALOG oDlg TITLE "NG - Debugger de Expressoes" FROM 180, 180 TO 550, 700 PIXEL
-  TIBrowser():New( 0, 0, 260, 180, "C:\totvs\var_dump.html", oDlg )
+  TIBrowser():New( 0, 0, 260, 180, "C:\ng_debugger\result.html", oDlg )
   ACTIVATE MSDIALOG oDlg CENTERED
   Return Console( xVar )
 
 Static Function RegisterHTML( cHTML )
-  Local nHandle := fCreate( "C:\totvs\var_dump.html" )
+  Local nHandle := fCreate( "C:\ng_debugger\result.html" )
   fWrite( nHandle, MountPage( cHTML ) )
   fClose( nHandle )
   Return
