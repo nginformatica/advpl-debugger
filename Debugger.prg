@@ -77,7 +77,7 @@ Static Function ParseNumber( nData )
        + @Token { SYMBOL  "("                     } ;
        + @Token { NUMBER  AllTrim( Str( nData ) ) } ;
        + @Token { SYMBOL  ")"                     } ;
-       + @TOKEN { NEWLINE TOKEN                   }
+       + @Token { NEWLINE TOKEN                   }
 
 Static Function ParseTrue
   Return @Token { KEYWORD "logic" } ;
