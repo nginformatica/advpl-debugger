@@ -137,6 +137,7 @@ Static Function ParseObject( oData )
     Else
       cTemplate += @Token { SYMBOL  ")"    } ;
                  + @Token { NEWLINE TOKEN  }
+      @Previous
       Return cTemplate
     EndIf
 
